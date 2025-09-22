@@ -3,9 +3,9 @@ name: Build and Push TODOs API
 # Triggers: Ejecuta cuando hay push o pull request a la rama main
 on:
   push:
-    branches: [main]
+    branches: [master] # no hay main, hay es master
   pull_request:
-    branches: [main]
+    branches: [master]
 
 # Variables globales del workflow
 env:
