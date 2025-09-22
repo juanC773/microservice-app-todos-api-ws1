@@ -16,11 +16,11 @@ COPY . .
 
 EXPOSE 8082
 
-# Variables de entorno por defecto (se pueden sobrescribir)
-ENV TODO_API_PORT=8082
-ENV JWT_SECRET=PRFT
-ENV REDIS_HOST=localhost
-ENV REDIS_PORT=6379
-ENV REDIS_CHANNEL=log_channel
+# Variables de entorno configurables via build args y runtime
+# ENV TODO_API_PORT=8082
+# ENV JWT_SECRET=PRFT  
+# ENV REDIS_HOST=localhost
+# ENV REDIS_PORT=6379
+# ENV REDIS_CHANNEL=log_channel
 
 CMD ["npm", "start"]
