@@ -45,13 +45,12 @@ const recorder = new  BatchRecorder({
 const localServiceName = 'todos-api';
 const tracer = new Tracer({ctxImpl, recorder, localServiceName});
 
-// CORS configuration - DEBE IR ANTES DEL JWT MIDDLEWARE
+// CORS configuration
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-B3-TraceId, X-B3-SpanId, X-B3-ParentSpanId, X-B3-Sampled, X-B3-Flags');
   
-  // Handle preflight OPTIONS requests
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }
